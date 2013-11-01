@@ -1,0 +1,28 @@
+# Easier navigation
+alias ..="cd ../"
+alias ..2="cd ../../"
+alias ..3="cd ../../../"
+
+# Shortcuts
+alias dropbox="cd ~/Dropbox"
+alias sites="cd ~/Sites"
+
+# Enable aliases to be sudo’ed
+alias sudo="sudo "
+
+# Enhanced WHOIS lookups
+alias whois="whois -h whois-servers.net"
+
+# Show/hide hidden files in Finder
+alias showhidden="defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder"
+alias hidehidden="defaults write com.apple.finder AppleShowAllFiles -bool false && killall Finder"
+
+# Hide/show all desktop icons (useful when presenting)
+alias hidedesktop="defaults write com.apple.finder CreateDesktop -bool false && killall Finder"
+alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && killall Finder"
+
+# Have SASS watch a sass/ directory and compile to generated/ using --style compressed
+alias sass-watch="sass --watch sass:generated --style compressed"
+
+# If I try to use the 'artisan' command assume I'm calling `php artisan` on the current directory
+alias artisan="php ./artisan"

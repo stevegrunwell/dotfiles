@@ -1,0 +1,6 @@
+#! /bin/bash
+
+# Set the system volume (0-10, decimals are permitted)
+function set-volume() {
+  osascript -e "set Volume "$1""
+}
