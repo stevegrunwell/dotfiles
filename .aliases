@@ -26,3 +26,6 @@ alias sass-watch="sass --watch sass:generated --style compressed"
 
 # If I try to use the 'artisan' command assume I'm calling `php artisan` on the current directory
 alias artisan="php ./artisan"
+
+# Error logs to open in Console
+alias a2errors="open /var/log/apache2/error_log"
