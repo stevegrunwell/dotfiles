@@ -34,4 +34,7 @@ alias hosts="sudo vi /etc/hosts"
 alias vhosts="sudo subl /etc/apache2/extra/httpd-vhosts.conf"
 
 # Error logs to open in Console
-alias a2errors="open /var/log/apache2/error_log"
+alias a2errors="open -a Console.app /var/log/apache2/error_log"
+
+# Open the iOS Emulator from the Xcode package
+alias iphone="open /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Applications/iPhone\ Simulator.app"
