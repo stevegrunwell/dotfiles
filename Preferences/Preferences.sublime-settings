@@ -1,0 +1,57 @@
+{
+	"added_words":
+	[
+		"programmatically",
+		"plugin",
+		"timestamp",
+		"bool",
+		"Multisite",
+		"blog",
+		"admin",
+		"cron",
+		"plugins",
+		"backend"
+	],
+	"binary_file_patterns":
+	[
+		"*.dat",
+		"*.dds",
+		"*.eot",
+		"*.gif",
+		"*.ico",
+		"*.jar",
+		"*.jpeg",
+		"*.jpg",
+		"*.mo",
+		"*.pdf",
+		"*.png",
+		"*.swf",
+		"*.tga",
+		"*.ttf",
+		"*.zip",
+		"*.log",
+		"node_modules/",
+		"tests/coverage/",
+		"*.min.css",
+		"*.min.js",
+		"*.map",
+		".php_cs.cache",
+		".phpunit.result.cache"
+	],
+	"bold_folder_labels": true,
+	"color_scheme": "Packages/Dayle Rees Color Schemes/sublime/juicy.tmTheme",
+	"font_size": 12,
+	"hot_exit": false,
+	"ignored_packages":
+	[
+		"JavaScript",
+		"Markdown",
+		"Vintage"
+	],
+	"show_encoding": true,
+	"show_git_status": false,
+	"spell_check": true,
+	"theme": "Default.sublime-theme",
+	"translate_tabs_to_spaces": true,
+	"trim_trailing_white_space_on_save": true
+}
