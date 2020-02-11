@@ -39,3 +39,18 @@ alias airport="/System/Library/PrivateFrameworks/Apple80211.framework/Versions/C
 
 # Open up Apache, but run it in the foreground.
 alias local-apache="sudo /usr/sbin/httpd -DFOREGROUND"
+
+# Recursively delete .DS_Store files
+#
+# http://osxdaily.com/2012/07/05/delete-all-ds-store-files-from-mac-os-x/
+alias delete-ds-store="find . -name ".DS_Store" -depth -exec rm {} \;"
+
+# Flatten all sub-directories of the current directory
+#
+# http://osxdaily.com/2015/02/11/flatten-nested-directory-structure-command-line/
+alias flatten-directory="find . -mindepth 2 -type f -exec mv -i '{}' . \;"
+
+# Delete empty directories
+#
+# https://www.cyberciti.biz/faq/howto-find-delete-empty-directories-files-in-unix-linux/
+alias delete-empty-dirs="find . -empty -type d -delete"
