@@ -34,4 +34,7 @@ touch ~/.hushlogin
 # Load the .gitconfig file from the dotfiles.
 safe-symlink git/.gitconfig .gitconfig
 
+# RubyGems configuration
+safe-symlink ruby/.gemrc .gemrc
+
 echo "Dotfiles have been installed successfully!"
