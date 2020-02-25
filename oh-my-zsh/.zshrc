@@ -70,7 +70,7 @@ ZSH_CUSTOM=/Users/steve/Dropbox/dotfiles/oh-my-zsh/custom
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(composer git npm nvm redis-cli vagrant wp-cli yarn)
+plugins=(composer git npm nvm redis-cli ssh-agent vagrant wp-cli yarn)
 
 source $ZSH/oh-my-zsh.sh
 
