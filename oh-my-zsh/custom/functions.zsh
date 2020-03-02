@@ -37,3 +37,20 @@ function system-cleanup() {
   npm cache clean
   brew cleanup
 }
+
+# Extract a PHAR.
+#
+# USAGE:
+#   extract-phar some-file.phar
+#
+function extract-phar() {
+  PHAR=${1:?A PHAR file must be provided}
+
+  php -r "try {
+    \$phar = new Phar('${PHAR}');
+    \$phar->extractTo('${PHAR}-extracted');
+  } catch (Throwable \$e) {
+    echo \$e->getMessage() . PHP_EOL;
+    exit(\$e->getCode());
+  }"
+}
