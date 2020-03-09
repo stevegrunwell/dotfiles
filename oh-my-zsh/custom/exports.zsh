@@ -15,7 +15,7 @@ export SLACK_DEVELOPER_MENU=true
 
 # Favor the Homebrew-installed version of Ruby
 export RUBY_HOME=/usr/local/opt/ruby/bin
-export GEM_PATH=~/.gem/ruby/2.6.0
+export GEM_PATH=~/.gem/ruby/2.7.0
 export PATH=$GEM_PATH/bin:$RUBY_HOME:$PATH
 
 # Load Node Version Manager (nvm)
