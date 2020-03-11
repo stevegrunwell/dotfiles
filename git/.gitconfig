@@ -20,3 +20,6 @@
     # Clean up all branches that start with "pr/"
     # Reference: https://davidwalsh.name/pull-down-pr
     pr-clean = "!git checkout master ; git for-each-ref refs/heads/pr/* --format=\"%(refname)\" | while read ref ; do branch=${ref#refs/heads/} ; git branch -D $branch ; done"
+
+    # Set the upstream for a forked repo.
+    set-upstream = "!f() { git remote add upstream https://github.com/"$1".git; git remote -v; }; f"
