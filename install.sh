@@ -37,4 +37,8 @@ safe-symlink git/.gitconfig .gitconfig
 # RubyGems configuration
 safe-symlink ruby/.gemrc .gemrc
 
+# Custom sudo configuration
+sudo cp -n "${DOTFILES_DIR}/etc/sudoers.d/vagrant_hostsupdater" /etc/sudoers.d/vagrant_hostsupdater \
+    || echo 'Unable to copy to /etc/sudoers.d/vagrant_hostsupdater'
+
 echo "Dotfiles have been installed successfully!"
