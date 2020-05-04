@@ -5,10 +5,27 @@ function set-volume() {
 
 # Common system cleanup functions.
 function system-cleanup() {
+  echo -e "\033[0;36mClearing Composer caches\033[0;0m"
   composer clearcache
-  docker system prune
-  npm cache clean
+  echo
+
+  echo -e "\033[0;36mClearing npm caches\033[0;0m"
+  npm cache clean --force
+  echo
+
+  echo -e "\033[0;36mPruning the Docker system\033[0;0m"
+  if pgrep -q "com.docker.supe"; then
+    docker system prune -a --volumes
+  else
+    echo -e "\033[0;33mDocker is not currently running, skipping"
+  fi
+  echo
+
+  echo -e "\033[0;36mCleaning up Homebrew\033[0;0m"
   brew cleanup
+  echo
+
+  echo -e "\033[0;32mSystem cleanup has completed successfully!\\033[0;0m"
 }
 
 # Extract a PHAR.
