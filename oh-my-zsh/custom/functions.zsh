@@ -21,6 +21,11 @@ function system-cleanup() {
   fi
   echo
 
+  echo -e "\033[0;36mCleaning up old Vagrant boxes\033[0;0m"
+  vagrant box outdated --global
+  vagrant box prune
+  echo
+
   echo -e "\033[0;36mCleaning up Homebrew\033[0;0m"
   brew cleanup
   echo
