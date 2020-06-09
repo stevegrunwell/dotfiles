@@ -4,6 +4,7 @@ alias ..2="cd ../../"
 alias ..3="cd ../../../"
 
 # Shortcuts
+alias brew-edit="cd $(brew --repo homebrew/core)"
 alias dotfiles="cd ${0:a:h}/../../"
 alias dropbox="cd ~/Dropbox"
 
