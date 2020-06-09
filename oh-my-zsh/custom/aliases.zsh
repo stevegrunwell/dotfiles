@@ -4,6 +4,7 @@ alias ..2="cd ../../"
 alias ..3="cd ../../../"
 
 # Shortcuts
+alias dotfiles="cd ${0:a:h}/../../"
 alias dropbox="cd ~/Dropbox"
 
 # Enable aliases to be sudo’ed
