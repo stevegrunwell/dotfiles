@@ -18,6 +18,9 @@ export RUBY_HOME=/usr/local/opt/ruby/bin
 export GEM_PATH=~/.gem/ruby/2.7.0
 export PATH=$GEM_PATH/bin:$RUBY_HOME:$PATH
 
+# Add /usr/local/sbin to $PATH
+export PATH=/usr/local/sbin:$PATH
+
 # Load Node Version Manager (nvm)
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
