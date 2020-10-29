@@ -56,3 +56,10 @@ alias flatten-directory="find . -mindepth 2 -type f -exec mv -i '{}' . \;"
 #
 # https://www.cyberciti.biz/faq/howto-find-delete-empty-directories-files-in-unix-linux/
 alias delete-empty-dirs="find . -empty -type d -delete"
+
+# Old versions of PHP for testing.
+alias php56="docker run --rm -it --name=php-5.6 -v "$PWD":/app -w /app php:5.6-alpine php"
+alias php70="docker run --rm -it --name=php-7.0 -v "$PWD":/app -w /app php:7.0-alpine php"
+alias php71="docker run --rm -it --name=php-7.1 -v "$PWD":/app -w /app php:7.1-alpine php"
+alias php72="docker run --rm -it --name=php-7.2 -v "$PWD":/app -w /app php:7.2-alpine php"
+alias php73="docker run --rm -it --name=php-7.3 -v "$PWD":/app -w /app php:7.3-alpine php"
