@@ -15,7 +15,7 @@ function system-cleanup() {
 
   echo -e "\033[0;36mPruning the Docker system\033[0;0m"
   if pgrep -q "com.docker.supe"; then
-    docker system prune -a --volumes
+    docker system prune -af --volumes
   else
     echo -e "\033[0;33mDocker is not currently running, skipping"
   fi
