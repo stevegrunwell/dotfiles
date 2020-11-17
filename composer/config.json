@@ -1,0 +1,6 @@
+{
+    "config": {
+        "sort-packages": "true",
+        "vendor-dir": "$HOME/.composer/vendor"
+    }
+}
