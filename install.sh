@@ -34,6 +34,9 @@ touch ~/.hushlogin
 # Load the .gitconfig file from the dotfiles.
 safe-symlink git/.gitconfig .gitconfig
 
+# Node configuration
+safe-symlink npm/.npmrc .npmrc
+
 # RubyGems configuration
 safe-symlink ruby/.gemrc .gemrc
 
