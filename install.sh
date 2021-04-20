@@ -22,6 +22,9 @@ safe-symlink() {
     ln -sf "${DOTFILES_DIR}/${SOURCE_FILE}" ~/${TARGET_FILE}
 }
 
+# Clone external repos
+git clone https://github.com/lukechilds/zsh-nvm oh-my-zsh/custom/plugins/zsh-nvm
+
 # Replace ~/.zshrc with the version from this repository
 safe-symlink oh-my-zsh/.zshrc .zshrc
 

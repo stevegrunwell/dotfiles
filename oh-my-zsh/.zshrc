@@ -65,12 +65,18 @@ ZSH_THEME="robbyrussell"
 # https://github.com/ohmyzsh/ohmyzsh/pull/5739#issuecomment-270349751
 ZSH_CUSTOM=/Users/steve/Dropbox/dotfiles/oh-my-zsh/custom
 
+# Custom configuration for zsh-nvm.
+#
+# https://github.com/lukechilds/zsh-nvm#options
+export NVM_LAZY_LOAD=true
+export NVM_AUTO_USE=true
+
 # Which plugins would you like to load?
 # Standard plugins can be found in ~/.oh-my-zsh/plugins/*
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(composer git npm nvm redis-cli ssh-agent vagrant wp-cli yarn)
+plugins=(composer git zsh-nvm npm redis-cli ssh-agent vagrant wp-cli yarn)
 
 source $ZSH/oh-my-zsh.sh
 
