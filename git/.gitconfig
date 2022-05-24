@@ -3,7 +3,6 @@
 	email = 233836+stevegrunwell@users.noreply.github.com
 [core]
     filemode = false
-    excludesfile = /Users/steve/Dropbox/dotfiles/git/.gitignore
 [color]
     ui = true
 [push]

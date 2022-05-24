@@ -25,14 +25,18 @@ safe-symlink() {
 # Clone external repos
 git clone https://github.com/lukechilds/zsh-nvm oh-my-zsh/custom/plugins/zsh-nvm
 
+# Create an empty .config directory
+mkdir ~/.config
+
 # Replace ~/.zshrc with the version from this repository
 safe-symlink oh-my-zsh/.zshrc .zshrc
 
 # Prevent login messages by adding an empty .hushlogin file to the user's home directory.
 touch ~/.hushlogin
 
-# Load the .gitconfig file from the dotfiles.
+# Custom git configuration.
 safe-symlink git/.gitconfig .gitconfig
+safe-symlink git/ignore .config/git/ignore
 
 # Composer configuration
 mkdir -p ~/.composer
@@ -45,9 +49,6 @@ safe-symlink npm/.npmrc .npmrc
 
 # RubyGems configuration
 safe-symlink ruby/.gemrc .gemrc
-
-# Symlink the ~/.config directory
-safe-symlink config .config
 
 # App preferences
 safe-symlink "Preferences/Code/settings.json" "Library/Application Support/Code/User/settings.json"
