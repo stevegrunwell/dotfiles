@@ -1,4 +1,4 @@
-#! /usr/bin/env zsh
+#!/usr/bin/env zsh
 
 # The directory this script lives in.
 DOTFILES_DIR=$0:a:h
@@ -51,6 +51,10 @@ safe-symlink config .config
 
 # App preferences
 safe-symlink "Preferences/Code/settings.json" "Library/Application Support/Code/User/settings.json"
+
+# iTerm2 preferences: http://stratus3d.com/blog/2015/02/28/sync-iterm2-profile-with-dotfiles-repository/
+defaults write com.googlecode.iterm2.plist PrefsCustomFolder -string "${DOTFILES_DIR}/Preferences/iTerm2"
+defaults write com.googlecode.iterm2.plist LoadPrefsFromCustomFolder -bool true
 
 # Custom sudo configuration
 sudo cp -n "${DOTFILES_DIR}/etc/sudoers.d/vagrant_hostsupdater" /etc/sudoers.d/vagrant_hostsupdater \
