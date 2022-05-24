@@ -49,6 +49,12 @@ safe-symlink npm/.npmrc .npmrc
 # RubyGems configuration
 safe-symlink ruby/.gemrc .gemrc
 
+# Symlink the ~/.config directory
+safe-symlink config .config
+
+# App preferences
+safe-symlink "Preferences/Code/settings.json" "Library/Application Support/Code/User/settings.json"
+
 # Custom sudo configuration
 sudo cp -n "${DOTFILES_DIR}/etc/sudoers.d/vagrant_hostsupdater" /etc/sudoers.d/vagrant_hostsupdater \
     || echo 'Unable to copy to /etc/sudoers.d/vagrant_hostsupdater'

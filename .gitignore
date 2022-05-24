@@ -1,2 +1,8 @@
+# Don't track custom, third-party Oh My Zsh plugins.
 oh-my-zsh/custom/plugins
+
+# The config/ directory maps to ~/.config, but can contain sensitive information.
+config
+
+# System files.
 *.DS_Store
