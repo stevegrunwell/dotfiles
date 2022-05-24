@@ -58,8 +58,13 @@ alias flatten-directory="find . -mindepth 2 -type f -exec mv -i '{}' . \;"
 alias delete-empty-dirs="find . -empty -type d -delete"
 
 # Old versions of PHP for testing.
-alias php56="docker run --rm -it --name=php-5.6 -v "$PWD":/app -w /app php:5.6-alpine php"
-alias php70="docker run --rm -it --name=php-7.0 -v "$PWD":/app -w /app php:7.0-alpine php"
-alias php71="docker run --rm -it --name=php-7.1 -v "$PWD":/app -w /app php:7.1-alpine php"
-alias php72="docker run --rm -it --name=php-7.2 -v "$PWD":/app -w /app php:7.2-alpine php"
-alias php73="docker run --rm -it --name=php-7.3 -v "$PWD":/app -w /app php:7.3-alpine php"
+alias php56="docker run --rm -it --name=php-5.6 -v "$PWD":/usr/src/app -w /usr/src/app php:5.6-alpine php"
+alias php70="docker run --rm -it --name=php-7.0 -v "$PWD":/usr/src/app -w /usr/src/app php:7.0-alpine php"
+alias php71="docker run --rm -it --name=php-7.1 -v "$PWD":/usr/src/app -w /usr/src/app php:7.1-alpine php"
+alias php72="docker run --rm -it --name=php-7.2 -v "$PWD":/usr/src/app -w /usr/src/app php:7.2-alpine php"
+alias php73="docker run --rm -it --name=php-7.3 -v "$PWD":/usr/src/app -w /usr/src/app php:7.3-alpine php"
+alias php74="docker run --rm -it --name=php-7.4 -v "$PWD":/usr/src/app -w /usr/src/app php:7.4-alpine php"
+alias php80="docker run --rm -it --name=php-8.0 -v "$PWD":/usr/src/app -w /usr/src/app php:8.0-alpine php"
+
+# SSH into a server, but force password-based authentication
+alias ssh-passsword-only="ssh -o PreferredAuthentications=password -o PubkeyAuthentication=no"
