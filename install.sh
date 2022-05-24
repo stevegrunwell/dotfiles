@@ -22,6 +22,12 @@ safe-symlink() {
     ln -sf "${DOTFILES_DIR}/${SOURCE_FILE}" ~/${TARGET_FILE}
 }
 
+# Install Oh My Zsh (if not already present)
+if [ ! -d ~/.travis/travis.sh ]; then
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+    rm -rf ~/.oh-my-zsh/custom && safe-symlink oh-my-zsh/custom .oh-my-zsh/custom
+fi
+
 # Clone external repos
 git clone https://github.com/lukechilds/zsh-nvm oh-my-zsh/custom/plugins/zsh-nvm
 
