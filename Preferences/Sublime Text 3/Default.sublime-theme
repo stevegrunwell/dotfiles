@@ -1,0 +1,19 @@
+[
+    /**
+     * Hide folder and file type icons in the sidebar.
+     *
+     * @link https://github.com/buymeasoda/soda-theme/pull/183#issuecomment-51838794
+     */
+    {
+        "class": "icon_file_type",
+        "content_margin": [0,0]
+    },
+    {
+        "class": "icon_folder",
+        "content_margin": [0,0]
+    },
+    {
+        "class": "icon_folder_loading",
+        "content_margin": [0,0]
+    },
+]

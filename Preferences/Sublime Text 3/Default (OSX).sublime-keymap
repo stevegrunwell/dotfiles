@@ -1,0 +1,4 @@
+[
+    { "keys": ["super+alt+enter"], "command": "expand_fqcn" },
+    { "keys": ["alt+enter"], "command": "find_use" },
+]
