@@ -28,9 +28,6 @@ git clone https://github.com/lukechilds/zsh-nvm oh-my-zsh/custom/plugins/zsh-nvm
 # Replace ~/.zshrc with the version from this repository
 safe-symlink oh-my-zsh/.zshrc .zshrc
 
-# Enable the `subl` command within our path.
-ln -s /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/local/bin/subl &> /dev/null
-
 # Prevent login messages by adding an empty .hushlogin file to the user's home directory.
 touch ~/.hushlogin
 
