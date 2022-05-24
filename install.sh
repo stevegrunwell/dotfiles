@@ -37,8 +37,8 @@ safe-symlink git/.gitconfig .gitconfig
 # Composer configuration
 mkdir -p ~/.composer
 safe-symlink composer/composer.json .composer/composer.json
-safe-symlink composer/composer.lock .composer/composer.lock
 safe-symlink composer/config.json .composer/config.json
+composer install --working-dir ~/.composer
 
 # Node configuration
 safe-symlink npm/.npmrc .npmrc
