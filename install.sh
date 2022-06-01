@@ -123,12 +123,6 @@ if [ ! -d ~/.oh-my-zsh ]; then
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 fi
 
-# Symlink custom *.zsh files.
-for file in $dotfiles_dir/oh-my-zsh/custom/*(.); do
-    debug "Symlinking ~/.oh-my-zsh/custom/${file:a:t} => ${file}"
-    ln -sf "$file" ~/.oh-my-zsh/custom/$file:a:t
-done
-
 # Replace ~/.zshrc with the version from this repository
 safe-symlink oh-my-zsh/.zshrc .zshrc
 
@@ -136,7 +130,7 @@ safe-symlink oh-my-zsh/.zshrc .zshrc
 step 'Downloading third-party Oh My Zsh plugins'
 if [ ! -d oh-my-zsh/custom/plugins/zsh-nvm ]; then
     debug 'https://github.com/lukechilds/zsh-nvm'
-    git clone https://github.com/lukechilds/zsh-nvm ~/.oh-my-zsh/custom/plugins/zsh-nvm
+    git clone https://github.com/lukechilds/zsh-nvm "${dotfiles_dir}/oh-my-zsh/custom/plugins/zsh-nvm"
 fi
 
 # Prevent login messages by adding an empty .hushlogin file to the user's home directory.
@@ -183,7 +177,7 @@ if [[ unattended -eq 0 ]]; then
     sudo cp -i "${dotfiles_dir}/etc/sudoers.d/vagrant_hostsupdater" /etc/sudoers.d/vagrant_hostsupdater \
         || error 'Unable to copy to /etc/sudoers.d/vagrant_hostsupdater'
 else
-    debug 'Skipping vagrant-hostsupdater config due to --unattended option'
+    warn 'Skipping vagrant-hostsupdater config due to --unattended option'
 fi
 
 printf "\n${color_green}%s${color_reset}\n" 'Dotfiles have been installed successfully!'
