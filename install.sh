@@ -145,14 +145,7 @@ safe-symlink git/ignore .config/git/ignore
 # Composer configuration.
 step 'Preparing Composer'
 mkdir -p ~/.composer
-safe-symlink composer/composer.json .composer/composer.json
 safe-symlink composer/config.json .composer/config.json
-
-if [[ $(command -v composer &> /dev/null) -eq 0 ]]; then
-    composer install --working-dir ~/.composer
-else
-    warn 'Composer is not currently installed, unable to install global packages!'
-fi
 
 # Node configuration.
 step 'Preparing NodeJS + npm'
