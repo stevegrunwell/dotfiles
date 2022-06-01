@@ -22,7 +22,7 @@ export PATH=$GEM_PATH/bin:$RUBY_HOME:$PATH
 export PATH=/usr/local/sbin:$PATH
 
 # WordPress core test suite
-export WP_TESTS_DIR="/Users/steve/Vagrant/VVV/www/wordpress-trunk/public_html/tests/phpunit/"
+export WP_TESTS_DIR="$HOME/Vagrant/VVV/www/wordpress-trunk/public_html/tests/phpunit/"
 
 # Let PHP Coding Standards Fixer use PHP 8.
 export PHP_CS_FIXER_IGNORE_ENV=true
