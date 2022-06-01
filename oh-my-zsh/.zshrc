@@ -71,7 +71,7 @@ export NVM_AUTO_USE=true
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(composer git zsh-nvm npm redis-cli ssh-agent vagrant wp-cli yarn)
+plugins=(composer git zsh-nvm redis-cli ssh-agent wp-cli)
 
 source $ZSH/oh-my-zsh.sh
 
