@@ -1,3 +1,11 @@
+# Custom shell functions.
+
+# Set up colors.
+color_cyan="\033[0;36m"
+color_green="\033[0;32m"
+color_reset="\033[0;0m"
+color_yellow="\033[0;33m"
+
 # Set the system volume (0-10, decimals are permitted)
 function set-volume() {
   osascript -e "set Volume "$1""
@@ -5,32 +13,27 @@ function set-volume() {
 
 # Common system cleanup functions.
 function system-cleanup() {
-  echo -e "\033[0;36mClearing Composer caches\033[0;0m"
+  printf "${color_cyan}%s${color_reset}\n" "Clearing Composer caches"
   composer clearcache
-  echo
 
-  echo -e "\033[0;36mClearing npm caches\033[0;0m"
+  printf "\n${color_cyan}%s${color_reset}\n" "Clearing npm caches"
   npm cache clean --force
-  echo
 
-  echo -e "\033[0;36mPruning the Docker system\033[0;0m"
+  printf "\n${color_cyan}%s${color_reset}\n" "Pruning the docker system"
   if pgrep -q "com.docker.supe"; then
     docker system prune -af --volumes
   else
-    echo -e "\033[0;33mDocker is not currently running, skipping"
+    printf "${color_yellow}%s${color_reset}\n" "Docker is not currently running, skipping"
   fi
-  echo
 
-  echo -e "\033[0;36mCleaning up old Vagrant boxes\033[0;0m"
+  printf "\n${color_cyan}%s${color_reset}\n" "Cleaning up old Vagrant boxes"
   vagrant box outdated --global
   vagrant box prune
-  echo
 
-  echo -e "\033[0;36mCleaning up Homebrew\033[0;0m"
+  printf "\n${color_cyan}%s${color_reset}\n" "Cleaning up Homebrew"
   brew cleanup
-  echo
 
-  echo -e "\033[0;32mSystem cleanup has completed successfully!\\033[0;0m"
+  printf "\n${color_green}%s${color_reset}\n" "System cleanup has completed successfully!"
 }
 
 # Extract a PHAR.
