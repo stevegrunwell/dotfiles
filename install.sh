@@ -114,13 +114,6 @@ while [ $# -gt 0 ]; do
     esac
 done
 
-# Clone external repos.
-step 'Downloading third-party Oh My Zsh plugins'
-if [ ! -d oh-my-zsh/custom/plugins/zsh-nvm ]; then
-    debug 'https://github.com/lukechilds/zsh-nvm'
-    git clone https://github.com/lukechilds/zsh-nvm oh-my-zsh/custom/plugins/zsh-nvm
-fi
-
 # Create an empty .config directory in the home directory.
 mkdir -p ~/.config/git
 
@@ -128,11 +121,23 @@ mkdir -p ~/.config/git
 if [ ! -d ~/.oh-my-zsh ]; then
     step 'Installing Oh My Zsh'
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
-    rm -rf ~/.oh-my-zsh/custom && safe-symlink oh-my-zsh/custom .oh-my-zsh/custom
 fi
+
+# Symlink custom *.zsh files.
+for file in $dotfiles_dir/oh-my-zsh/custom/*(.); do
+    debug "Symlinking ~/.oh-my-zsh/custom/${file:a:t} => ${file}"
+    ln -sf "$file" ~/.oh-my-zsh/custom/$file:a:t
+done
 
 # Replace ~/.zshrc with the version from this repository
 safe-symlink oh-my-zsh/.zshrc .zshrc
+
+# Clone external repos.
+step 'Downloading third-party Oh My Zsh plugins'
+if [ ! -d oh-my-zsh/custom/plugins/zsh-nvm ]; then
+    debug 'https://github.com/lukechilds/zsh-nvm'
+    git clone https://github.com/lukechilds/zsh-nvm ~/.oh-my-zsh/custom/plugins/zsh-nvm
+fi
 
 # Prevent login messages by adding an empty .hushlogin file to the user's home directory.
 debug 'Creating an empty ~/.hushlogin file'
@@ -175,7 +180,7 @@ defaults write com.googlecode.iterm2.plist LoadPrefsFromCustomFolder -bool true
 # Custom sudo configuration
 if [[ unattended -eq 0 ]]; then
     step 'Enabling password-less use of vagrant-hostsupdater'
-    sudo cp -n "${dotfiles_dir}/etc/sudoers.d/vagrant_hostsupdater" /etc/sudoers.d/vagrant_hostsupdater \
+    sudo cp -i "${dotfiles_dir}/etc/sudoers.d/vagrant_hostsupdater" /etc/sudoers.d/vagrant_hostsupdater \
         || error 'Unable to copy to /etc/sudoers.d/vagrant_hostsupdater'
 else
     debug 'Skipping vagrant-hostsupdater config due to --unattended option'
