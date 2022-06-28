@@ -180,5 +180,6 @@
     "explorer.autoReveal": false,
     "markdown-preview-github-styles.colorTheme": "light",
     "workbench.enableExperiments": false,
-    "editor.copyWithSyntaxHighlighting": false
+    "editor.copyWithSyntaxHighlighting": false,
+    "php.debug.ideKey": "PHPSTORM"
 }
