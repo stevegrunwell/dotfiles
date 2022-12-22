@@ -20,7 +20,7 @@ function system-cleanup() {
   npm cache clean --force
 
   printf "\n${color_cyan}%s${color_reset}\n" "Pruning the docker system"
-  if pgrep -q "com.docker.supe"; then
+  if pgrep -q "com.docker.hyperkit"; then
     docker system prune -af --volumes
   else
     printf "${color_yellow}%s${color_reset}\n" "Docker is not currently running, skipping"
