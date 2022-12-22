@@ -68,3 +68,6 @@ alias php80="docker run --rm -it --name=php-8.0 -v "$PWD":/usr/src/app -w /usr/s
 
 # SSH into a server, but force password-based authentication
 alias ssh-passsword-only="ssh -o PreferredAuthentications=password -o PubkeyAuthentication=no"
+
+# GitHub CLI aliases
+alias my-prs="gh pr list --author "@me""

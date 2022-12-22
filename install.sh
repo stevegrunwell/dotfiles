@@ -86,7 +86,7 @@ error() {
 }
 
 step() {
-    echo "$1"
+    printf "${bold}${color_cyan}‣${color_reset} %s${nobold}\n" "$1"
 }
 
 warn() {
@@ -161,16 +161,24 @@ safe-symlink "Preferences/Code/settings.json" "Library/Application Support/Code/
 
 # iTerm2 preferences: http://stratus3d.com/blog/2015/02/28/sync-iterm2-profile-with-dotfiles-repository/
 debug "Configuring iTerm2 to read preferences from ${dotfiles_dir}/Preferences/iTerm2"
-defaults write com.googlecode.iterm2.plist PrefsCustomFolder -string "${dotfiles_dir}/Preferences/iTerm2"
-defaults write com.googlecode.iterm2.plist LoadPrefsFromCustomFolder -bool true
+if defaults write com.googlecode.iterm2.plist PrefsCustomFolder -string "${dotfiles_dir}/Preferences/iTerm2" &> /dev/null; then
+    defaults write com.googlecode.iterm2.plist LoadPrefsFromCustomFolder -bool true
+else
+    warn 'Unable to update iTerm preferences'
+fi
+
 
 # Custom sudo configuration
-if [[ unattended -eq 0 ]]; then
-    step 'Enabling password-less use of vagrant-hostsupdater'
-    sudo cp -i "${dotfiles_dir}/etc/sudoers.d/vagrant_hostsupdater" /etc/sudoers.d/vagrant_hostsupdater \
-        || error 'Unable to copy to /etc/sudoers.d/vagrant_hostsupdater'
+if [[ ! -f /etc/sudoers.d/vagrant_hostsupdater ]]; then
+    if [[ unattended -eq 0 ]]; then
+        step 'Enabling password-less use of vagrant-hostsupdater'
+        sudo cp -i "${dotfiles_dir}/etc/sudoers.d/vagrant_hostsupdater" /etc/sudoers.d/vagrant_hostsupdater \
+            || error 'Unable to copy to /etc/sudoers.d/vagrant_hostsupdater'
+    else
+        warn 'Skipping vagrant-hostsupdater config due to --unattended option'
+    fi
 else
-    warn 'Skipping vagrant-hostsupdater config due to --unattended option'
+    debug 'Skipping vagrant-hostsupdater, file exists'
 fi
 
 printf "\n${color_green}%s${color_reset}\n" 'Dotfiles have been installed successfully!'
